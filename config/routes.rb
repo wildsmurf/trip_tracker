@@ -2,6 +2,6 @@ Rails.application.routes.draw do
   root 'trips#index'
   resources :trips
   resources :locations do
-    resouces :addresses
+    resources :addresses
   end
 end

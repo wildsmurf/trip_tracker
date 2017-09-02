@@ -1,2 +1,10 @@
-<h1>Trips#index</h1>
-<p>Find me in app/views/trips/index.html.erb</p>
+<h1>Welcome to Trip stuff doer!</h1>
+<p>For all your trip doing needs.</p>
+
+<%= link_to 'Create a New Trip', new_trip_path %>
+
+<% @trips.each do |trip| %>
+<h3><%= link_to trip.name, trip_path(trip) %></h3>
+<%= link_to 'Delete', trip_path(trip), method: :delete %>
+
+<% end %>

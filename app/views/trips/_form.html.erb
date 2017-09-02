@@ -1,0 +1,7 @@
+<h1><%= @trip.id ? 'Edit Trips' : 'Create a New Trip' %></h1>
+<hr>
+<%= form_for @trip do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name, required: true, autofocus: true %>
+  <%= f.submit %>
+<% end %>
