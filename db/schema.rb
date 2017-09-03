@@ -41,5 +41,4 @@ ActiveRecord::Schema.define(version: 20170902002417) do
   end
 
   add_foreign_key "addresses", "locations"
-  add_foreign_key "addresses", "trips"
 end

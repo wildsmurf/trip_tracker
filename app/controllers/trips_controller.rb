@@ -6,6 +6,7 @@ def index
 end
 
 def show
+  @addresses = @trip.addresses
 end
 
 def new
