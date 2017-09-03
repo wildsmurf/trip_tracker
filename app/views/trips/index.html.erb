@@ -4,6 +4,7 @@
 <ol>
   <% @trips.each do |trip| %>
     <li><%= link_to trip.name, trip_path(trip.id) %></li>
+    <%= link_to 'Destroy', trip, method: :delete, data: { confirm: 'Are you sure?' } %>
   <% end %>
 </ol>
 
