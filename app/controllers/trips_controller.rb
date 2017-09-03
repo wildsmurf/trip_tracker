@@ -1,12 +1,11 @@
 class TripsController < ApplicationController
-  before_action :set_trip, only: [:show, :update, :edit, :destroy]
+  before_action :set_trip, only: [:show, :update, :edit, :destroy, :new_address, :add_address, :delete_address]
 
 def index
   @trips = Trip.all
 end
 
 def show
-  # @songs = @billboard.songs
 end
 
 def new
@@ -38,6 +37,20 @@ end
 def destroy
   @trip.destroy
   redirect_to trips_path
+end
+
+def new_address
+  @addresses = Address.all.where(trip_id: nil)
+end
+
+def add_address
+  @trips.addresses << Address.find(params[:address_id])
+  redirect_to trip_path(@trip)
+end
+
+def delete_address
+  Address.find(params[:address_id]).update(trip_id: nil)
+  redirect_to trip_path(@trip)
 end
 
 private
