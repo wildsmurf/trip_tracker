@@ -7,7 +7,7 @@
     <%= link_to 'Destroy', trip, method: :delete, data: { confirm: 'Are you sure?' } %>
   <% end %>
 </ol>
-
+<%= button_to 'Log Out', destroy_user_session_path, method: :delete %>
 <%= link_to 'New Trip', new_trip_path %>
 <br>
 <%= link_to 'View Locations', locations_path %>
