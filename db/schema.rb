@@ -18,9 +18,11 @@ ActiveRecord::Schema.define(version: 20170902002417) do
   create_table "addresses", force: :cascade do |t|
     t.string "street"
     t.bigint "location_id"
+    t.bigint "trip_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["location_id"], name: "index_addresses_on_location_id"
+    t.index ["trip_id"], name: "index_addresses_on_trip_id"
   end
 
   create_table "locations", force: :cascade do |t|
@@ -28,10 +30,8 @@ ActiveRecord::Schema.define(version: 20170902002417) do
     t.string "city"
     t.string "state"
     t.string "country"
-    t.bigint "trip_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["trip_id"], name: "index_locations_on_trip_id"
   end
 
   create_table "trips", force: :cascade do |t|
@@ -41,5 +41,5 @@ ActiveRecord::Schema.define(version: 20170902002417) do
   end
 
   add_foreign_key "addresses", "locations"
-  add_foreign_key "locations", "trips"
+  add_foreign_key "addresses", "trips"
 end

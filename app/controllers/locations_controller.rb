@@ -9,14 +9,14 @@ class LocationsController < ApplicationController
     end
   
     def new
-      @locations = Location.new
+      @location = Location.new
       render partial: 'form'
     end
   
     def create
       @location = Location.new(location_params)
       if @location.save
-        redirect_to location_path
+        redirect_to location_path(@location)
       else
         render partial: 'form'
       end

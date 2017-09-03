@@ -2,7 +2,7 @@
 
 <%= form_for([@location, @address]) do |f| %>
   <%= f.label :title %>
-  <%= f.text_field :name, required: true, autofocus: true%>
+  <%= f.text_field :street, required: true, autofocus: true%>
   <br>
   <%= f.submit %>
 <% end %>
