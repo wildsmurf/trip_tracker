@@ -2,7 +2,7 @@
 
 <ul>
   <% @location.addresses.each do |address| %>
-  <li><%= address.street %></li>
+  <li><%= @location.addresses.name %></li>
   <% end %>
 </ul>
 
