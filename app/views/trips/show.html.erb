@@ -1,2 +1,18 @@
-<h1>Trips#show</h1>
-<p>Find me in app/views/trips/show.html.erb</p>
+<h1><%= @trip.name %></h1>
+
+<table>
+  <tr>
+    <th scope="col">Title</th>
+    <th scope="col">Artist</th>
+  </tr>
+  <% @trip.addresses.each do |address| %>
+  <tr>
+    <td><%= address.name %></td>
+    <td><%= address.location.name %></td>
+    <td><%= link_to 'Remove', delete_trip_address_path(@trip, address) %></td>
+  </tr>
+  <% end %>
+</table>
+
+<%= link_to 'Add Address', new_trip_address_path(@trip) %>
+<%= link_to 'Home', root_path %>

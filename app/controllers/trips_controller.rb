@@ -59,7 +59,7 @@ private
     params.require(:trip).permit(:name)
   end
 
-  def set_billboard
+  def set_trip
     @trip = Trip.find(params[:id])
   end
 

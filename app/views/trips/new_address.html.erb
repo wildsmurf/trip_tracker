@@ -1,0 +1,9 @@
+<h1>Add Address to <%= @trip.name %></h1>
+
+<ol>
+  <% @addresses.each do |address| %>
+    <li><%= link_to address.name, add_trip_address_path(@trip, address), method: :post %></li>
+  <% end %>
+</ol>
+
+<%= link_to 'Home', root_path %>
