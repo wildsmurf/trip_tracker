@@ -32,6 +32,6 @@ class AddressesController < ApplicationController
     @address = Address.find(params[:id])
   end
   def address_params
-      params.require(:address).permit(:name)
+      params.require(:address).permit(:street)
     end
 end
