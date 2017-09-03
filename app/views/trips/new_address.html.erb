@@ -2,7 +2,7 @@
 
 <ol>
   <% @addresses.each do |address| %>
-    <li><%= link_to address.name, add_trip_address_path(@trip, address), method: :post %></li>
+    <li><%= link_to address.street, add_trip_address_path(@trip, address), method: :post %></li>
   <% end %>
 </ol>
 
