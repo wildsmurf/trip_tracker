@@ -1,5 +1,6 @@
 class TripsController < ApplicationController
   before_action :set_trip, only: [:show, :update, :edit, :destroy, :new_address, :add_address, :delete_address]
+  before_action :set_addresses, only: [:show, :update, :edit, :destroy, :new_address, :add_address, :delete_address]
 
 def index
   @trips = Trip.all
@@ -45,7 +46,7 @@ def new_address
 end
 
 def add_address
-  @trips.addresses << Address.find(params[:address_id])
+  @addresses << Address.find(params[:address_id])
   redirect_to trip_path(@trip)
 end
 
@@ -62,6 +63,10 @@ private
 
   def set_trip
     @trip = Trip.find(params[:id])
+  end
+
+  def set_addresses
+    @addresses = @trip.addresses
   end
 
 end

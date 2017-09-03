@@ -7,7 +7,7 @@
   </tr>
   <% @trip.addresses.each do |address| %>
   <tr>
-    <td><%= address.name %></td>
+    <td><%= address.street %></td>
     <td><%= address.location.name %></td>
     <td><%= link_to 'Remove', delete_trip_address_path(@trip, address) %></td>
   </tr>
