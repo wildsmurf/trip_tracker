@@ -4,14 +4,15 @@
   <tr>
     <th scope="col">Address</th>
     <th scope="col">Location</th>
+    <th scope="col"></th>
   </tr>
   <% @trip.addresses.each do |address| %>
   <tr>
     <td><%= address.street %></td>
     <td><%= address.location.name %></td>
-    <td><%= link_to 'Remove', delete_trip_address_path(@trip, address) %></td>
+    <td><%= link_to '<i class="remove circle icon"></i>'.html_safe, delete_trip_address_path(@trip, address) %></td>
   </tr>
   <% end %>
 </table>
 
-<%= link_to 'Add Address', new_trip_address_path(@trip) %>
+<%= link_to 'Add Address/Attraction', new_trip_address_path(@trip) %>

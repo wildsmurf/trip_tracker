@@ -1,11 +1,23 @@
-<h1>Add Address to <%= @trip.name %></h1>
+<h1>Click <i class="add circle icon"></i> to add the destination to "<%= @trip.name %>"</h1>
 
 <% if @addresses.any? %>
-  <ol>
-  <% @addresses.each do |address| %>
-    <li><%= link_to address.street, add_trip_address_path(@trip, address), method: :post %></li>
-  </ol>
-  <% end %>
-<% else %>
-  <h3>All Stops have been added to your trip already!</h3>
+  <table>
+    <tr>
+      <th scope="col">Address/ Attraction</th>
+      <th scope="col">Location</th>
+    </tr>
+    <% @addresses.each do |address| %>
+      <tr>
+        <td><%= address.street %></td>
+        <td><%= address.location.name %></td>
+        <td><%= link_to '<i class="add circle icon"></i>'.html_safe, add_trip_address_path(@trip, address), method: :post %></td>
+      </tr>
+    <% end %>
+  </table>
+  <% else %>
+  <div class="field">
+    <h3>No Additional Stops Available For Your Trip!
+    <br>Go to Destinations to add options to each destination.<br>
+  </div><br>
+    <%= link_to 'Destinations', locations_path, class: "ui positive button" %>
 <% end %>

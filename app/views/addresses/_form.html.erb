@@ -1,6 +1,10 @@
 <%= form_for([@location, @address]) do |f| %>
-  <%= f.label :"Attraction Address" %>
-  <%= f.text_field :street, required: true, autofocus: true%>
+  <div class="field">  
+    <%= f.label :"Attraction/Address" %><br>
+    <div class="ui input focus">
+      <%= f.text_field :street, required: true, autofocus: true %>
+    </div>
+  </div>
   <br>
-  <%= f.submit %>
+  <%= f.submit 'Add New ', class: "ui positive button"%>
 <% end %>
