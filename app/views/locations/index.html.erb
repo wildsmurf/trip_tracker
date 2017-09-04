@@ -2,31 +2,32 @@
 
 <div class="ui grid">
   <% if @locations.any? %>
-    <% @locations.each do |location| %>
-      <div class="sixteen wide mobile eight wide tablet four wide computer column">
-        <div class="ui card">
-          <div class="image">
-            <img src="" />
+  <% @locations.each do |location| %>
+  <div class="sixteen wide mobile eight wide tablet four wide computer column">
+    <div class="ui card">
+      <div class="image">
+        <img src="" />
+      </div>
+      <div class="content">
+        <%= link_to location.name, location_path(location.id), class: "header" %>
+      </div>
+      <div class="extra content">
+        <div class="ui two buttons">
+          <div class="ui green button basic">
+              <%= link_to '<i class="erase icon"></i>'.html_safe, 
+              location, 
+              method: :delete, data: { confirm: 'Erase Destination?' } %>
           </div>
-          <div class="content">
-            <%= link_to location.name, location_path(location.id), class: "header" %>
-          </div>
-          <div class="extra content">
-            <div class="ui two buttons">
-              <div class="ui green button basic">
-                 <%= link_to '<i class="erase icon"></i>'.html_safe, 
-                 location, 
-                 method: :delete, data: { confirm: 'Erase Destination?' } %>
-              </div>
-              <div class="ui red button basic">
-                <%= link_to '<i class="edit icon"></i>'.html_safe, edit_location_path(location), data: { confirm: 'Edit Destination Name?' } %>
-              </div>
-            </div>
+          <div class="ui red button basic">
+            <%= link_to '<i class="edit icon"></i>'.html_safe, edit_location_path(location), data: { confirm: 'Edit Destination Name?' } %>
           </div>
         </div>
       </div>
-    <% end %>
-  <% else %>
-    <h3>No Destination cities found!</h3><%= link_to 'Add a New Destination', new_location_path , class: "ui teal button"%>
-  <% end %>
-</div>
+    </div>
+  </div>
+<% end %>
+</div><br>
+  <%= link_to 'Add a New Destination', new_location_path , class: "ui teal button"%>
+<% else %>
+  <h3>No Destination cities found!</h3><%= link_to 'Add a New Destination', new_location_path , class: "ui teal button"%>
+<% end %>
