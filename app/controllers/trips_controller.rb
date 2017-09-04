@@ -28,7 +28,7 @@ end
 
 def update
   if @trip.update(trip_params)
-    redirect_to trip_path(@trip)
+    redirect_to root_path
   else
     render partial: "form"
   end

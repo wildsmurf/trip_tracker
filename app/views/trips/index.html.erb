@@ -1,13 +1,16 @@
 <h1>Welcome to the D.R.E Trip Planner</h1>
 <% if @trips.any? %>
-  <p>Cuurently planned trips:</p>
+  <p>Curently planned trips:</p>
     <ul>
       <% @trips.each do |trip| %>
-        <li><h3><%= link_to trip.name, trip_path(trip.id) %></h3></li><%= link_to 'Delete Trip', trip, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <li><h3><%= link_to trip.name, trip_path(trip.id) %></h3></li>
+        <%= link_to '<i class="erase icon"></i>'.html_safe, trip, method: :delete, data: { confirm: 'Erase Trip?' } %>
+        <%= link_to '<i class="edit icon"></i>'.html_safe, edit_trip_path(trip), data: { confirm: 'Edit Trip Name?' } %>
+
         <br>
       <% end %>
+    </ul>
     <%= link_to 'New Trip', new_trip_path, class: "ui positive button" %>
   <% else %>
     <h3>No Trips found!</h3><%= link_to 'Create a New Trip', new_trip_path , class: "ui positive button"%>
 <% end %>
-</ul>

@@ -10,7 +10,6 @@ class LocationsController < ApplicationController
   
     def new
       @location = Location.new
-      render partial: 'form'
     end
   
     def create
