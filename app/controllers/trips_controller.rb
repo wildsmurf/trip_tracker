@@ -12,7 +12,6 @@ end
 
 def new
   @trip = Trip.new
-  render partial: "form"
 end
 
 def create
@@ -25,7 +24,6 @@ def create
 end
 
 def edit
-  render partial: "form"
 end
 
 def update
