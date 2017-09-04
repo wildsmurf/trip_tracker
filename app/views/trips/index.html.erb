@@ -1,13 +1,12 @@
-<h1>Welcome to the Trip Planner</h1>
-<p>For all your trip stuff plan doing needs.</p>
+<h1>Welcome Trip Planner</h1>
+<p>Here you can create a <%= link_to 'New Trip', new_trip_path %>, or browse all Destinations</p>
 
-<ol>
+<ul>
   <% @trips.each do |trip| %>
-    <li><%= link_to trip.name, trip_path(trip.id) %></li>
-    <%= link_to 'Destroy', trip, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <li><h3><%= link_to trip.name, trip_path(trip.id) %></h3></li><%= link_to 'Delete Trip', trip, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <br>
   <% end %>
-</ol>
-<%= button_to 'Log Out', destroy_user_session_path, method: :delete %>
-<%= link_to 'New Trip', new_trip_path %>
+</ul>
+
+
 <br>
-<%= link_to 'View Locations', locations_path %>

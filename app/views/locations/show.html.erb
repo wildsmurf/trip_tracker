@@ -1,3 +1,4 @@
+
 <h1><%= @location.name %></h1>
 
 <ul>
@@ -5,9 +6,3 @@
   <li><%= address.street %></li>
   <% end %>
 </ul>
-
-<%= link_to 'New Address', new_location_address_path(@location) %>
-<br>
-<%= link_to 'View All Locations', locations_path %>
-<br>
-<%= link_to 'Home', root_path %>
