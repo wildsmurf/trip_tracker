@@ -1,9 +1,20 @@
 
 <h1><%= @location.name %></h1>
 
-<ul>
-  <% @location.addresses.each do |address| %>
-  <li><%= address.street %></li>
-  <% end %>
-</ul>
-<%= link_to 'New Address', new_location_address_path(@location) %>
+<table class="ui striped table">
+  <thead>
+    <tr>
+      <th>Address/Attraction</th>
+      <th> City</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @location.addresses.each do |address| %>
+      <tr>
+        <td><%= address.street %>
+        <Td><%= address.location.name %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to 'New Address/Attraction', new_location_address_path(@location), class: "ui teal button" %>

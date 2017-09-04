@@ -1,6 +1,6 @@
 <h1>Welcome to the D.R.E Trip Planner</h1>
 <% if @trips.any? %>
-  <h3>Curently planned trips:</h3>
+  <h3>Current Trips:</h3>
     <ul>
       <% @trips.each do |trip| %>
         <li><h3><%= link_to trip.name, trip_path(trip.id) %></h3></li>
@@ -10,7 +10,7 @@
         <br>
       <% end %>
     </ul>
-    <%= link_to 'New Trip', new_trip_path, class: "ui positive button" %>
+    <%= link_to 'New Trip', new_trip_path, class: "ui teal button" %>
   <% else %>
-    <h3>No Trips found!</h3><%= link_to 'Create a New Trip', new_trip_path , class: "ui positive button"%>
+    <h3>No Trips found!</h3><%= link_to 'Create a New Trip', new_trip_path , class: "ui teal button" %>
 <% end %>

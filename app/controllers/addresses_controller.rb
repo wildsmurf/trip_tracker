@@ -27,6 +27,11 @@ class AddressesController < ApplicationController
   def update
   end
 
+  def destroy
+    @location.address.destroy
+    redirect_to location_addresses_path
+  end  
+
   private
   def set_location
     @location = Location.find(params[:location_id])
