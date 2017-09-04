@@ -1,16 +1,16 @@
 <h1><%= @trip.name %></h1>
 
-<table>
+<table class="ui striped table">
   <tr>
     <th scope="col">Address</th>
     <th scope="col">Location</th>
-    <th scope="col"></th>
+    <th class="right aligned" scope="col">Remove</th>
   </tr>
   <% @trip.addresses.each do |address| %>
   <tr>
     <td><%= address.street %></td>
     <td><%= address.location.name %></td>
-    <td><%= link_to '<i class="remove circle icon"></i>'.html_safe, delete_trip_address_path(@trip, address) %></td>
+    <td class="right aligned"><%= link_to '<i class="remove circle icon"></i>'.html_safe, delete_trip_address_path(@trip, address) %></td>
   </tr>
   <% end %>
 </table>

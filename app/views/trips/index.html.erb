@@ -1,16 +1,23 @@
 <h1>Welcome to the D.R.E Trip Planner</h1>
 <% if @trips.any? %>
-  <h3>Current Trips:</h3>
-    <ul>
-      <% @trips.each do |trip| %>
-        <li><h3><%= link_to trip.name, trip_path(trip.id) %></h3></li>
-        <%= link_to '<i class="remove circle icon"></i>'.html_safe, trip, method: :delete, data: { confirm: 'Erase Trip?' } %>
-        <%= link_to '<i class="edit icon"></i>'.html_safe, edit_trip_path(trip), data: { confirm: 'Edit Trip Name?' } %>
-
-        <br>
-      <% end %>
-    </ul>
-    <%= link_to 'New Trip', new_trip_path, class: "ui teal button" %>
+ <h3>Current Trips:</h3>
+  <table class="ui striped table">
+    <tr>
+      <th scope="col">Trip</th>
+      <th scope="col">Edit</th>
+      <th class="right aligned" scope="col">Delete</th>
+    </tr>
+    <% @trips.each do |trip| %>
+      <tr>
+        <td><%= link_to trip.name, trip_path(trip.id) %></td>
+        <td><%= link_to '<i class="edit icon"></i>'.html_safe, edit_trip_path(trip), data: { confirm: 'Edit Trip Name?' } %></td>
+        <td class="right aligned"><%= link_to '<i class="remove circle icon"></i>'.html_safe, trip, method: :delete, data: { confirm: 'Erase Trip?' } %></td>
+      </tr>
+    <% end %>
+  </table>
+  <%= link_to 'Create a New Trip', new_trip_path , class: "ui teal button" %>
   <% else %>
+  <div class="field">
     <h3>No Trips found!</h3><%= link_to 'Create a New Trip', new_trip_path , class: "ui teal button" %>
+  </div>
 <% end %>
