@@ -10,7 +10,6 @@ class AddressesController < ApplicationController
 
   def new
     @address = Address.new
-    render partial: 'form'
   end
 
   def create
@@ -24,6 +23,10 @@ class AddressesController < ApplicationController
 
   def edit
   end
+
+  def update
+  end
+
   private
   def set_location
     @location = Location.find(params[:location_id])

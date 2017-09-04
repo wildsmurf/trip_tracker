@@ -1,6 +1,10 @@
 <%= form_for @trip do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name, required: true, autofocus: true %>
+  <div class="field">  
+    <%= f.label :name %><br>
+    <div class="ui input focus">
+      <%= f.text_field :name, required: true, autofocus: true %>
+    </div>
+  </div>
   <br>
   <%= f.submit nil, class: "ui positive button"%>
 <% end %>
