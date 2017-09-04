@@ -25,6 +25,11 @@ class LocationsController < ApplicationController
     end
 
     def update
+      if @location.update(location_params)
+        redirect_to locations_path
+      else
+        render partial: "form"
+      end
     end
 
     def destroy
