@@ -1,7 +1,10 @@
-<h1>Destinations</h1>
 
-<div class="ui grid">
+
   <% if @locations.any? %>
+<div class="page_title_button">
+<h1>Destinations</h1>
+</div>
+<div class="ui grid">
   <% @locations.each do |location| %>
   <div class="sixteen wide mobile eight wide tablet four wide computer column">
     <div class="ui card">
@@ -13,7 +16,7 @@
       </div>
       <div class="extra content">
         <div class="ui two buttons">
-          <div class="ui green button basic">
+          <div class="ui yellow button basic">
               <%= link_to '<i class="erase icon"></i>'.html_safe, 
               location, 
               method: :delete, data: { confirm: 'Erase Destination?' } %>
@@ -27,7 +30,13 @@
   </div>
 <% end %>
 </div><br>
+<div class="page_title_button">
   <%= link_to 'Add a New Destination', new_location_path , class: "ui teal button"%>
+</div>
 <% else %>
-  <h3>No Destination cities found!</h3><%= link_to 'Add a New Destination', new_location_path , class: "ui teal button"%>
+</div>
+<div class="page_title_button"><br>
+  <h3>No Destination cities found!</h3>
+  <br><%= link_to 'Add a New Destination', new_location_path , class: "ui teal button"%>
+</div>
 <% end %>

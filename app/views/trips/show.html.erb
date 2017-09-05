@@ -1,5 +1,6 @@
+<div class="page_title_button">
 <h1><%= @trip.name %></h1>
-
+</div>
 <table class="ui striped table">
   <tr>
     <th scope="col">Address</th>
@@ -14,5 +15,6 @@
   </tr>
   <% end %>
 </table>
-
+<div class="page_title_button">
 <%= link_to 'Add Address/Attraction', new_trip_address_path(@trip), class: "ui teal button" %>
+</div>

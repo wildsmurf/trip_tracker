@@ -1,5 +1,7 @@
 
-<h1><%= @location.name %></h1>
+<div class="page_title_button">
+  <h1><%= @location.name %></h1>
+</div>
 
 <table class="ui striped table">
   <thead>
@@ -17,4 +19,6 @@
     <% end %>
   </tbody>
 </table>
-<%= link_to 'New Address/Attraction', new_location_address_path(@location), class: "ui teal button" %>
+<div class="page_title_button">
+  <%= link_to 'New Address/Attraction', new_location_address_path(@location), class: "ui teal button" %>
+</div>

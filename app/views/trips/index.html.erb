@@ -1,4 +1,6 @@
-<h1>Welcome to the D.R.E Trip Planner</h1>
+<div class="page_title_button">
+  <h1>Welcome to the D.R.E Trip Planner</h1>
+</div>
 <% if @trips.any? %>
  <h3>Current Trips:</h3>
   <table class="ui striped table">
@@ -15,7 +17,9 @@
       </tr>
     <% end %>
   </table>
-  <%= link_to 'Create a New Trip', new_trip_path , class: "ui teal button" %>
+  <div class="page_title_button">
+    <%= link_to 'Create a New Trip', new_trip_path , class: "ui teal button" %>
+  </div>
   <% else %>
   <div class="field">
     <h3>No Trips found!</h3><%= link_to 'Create a New Trip', new_trip_path , class: "ui teal button" %>
